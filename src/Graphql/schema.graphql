@@ -1,0 +1,22 @@
+type Group {
+  id: ID!
+  title: String!
+  members: [User!]!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  groups: [Group!]!
+}
+
+type Query {
+  users: [User!]!
+  user(id: ID!): User
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User
+  createGroup(title: String): Group
+}
